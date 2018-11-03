@@ -1,6 +1,6 @@
 defmodule ChapterThree.LoopsAndIterations.Streams do
   """
-  Practicing
+  @moduledoc
   Using large_lines!/1 as a model, write the following functions:
 
       - lines_lengths!/1 that takes a file path and returns a list of numbers, with each number

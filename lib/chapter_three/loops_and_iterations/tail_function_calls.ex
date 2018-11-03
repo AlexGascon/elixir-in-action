@@ -1,5 +1,6 @@
 defmodule ChapterThree.LoopsAndIterations.TailFunctionCalls do
   """
+  @moduledoc
   Practice functions:
 
     - list_len/1 function that calculates the length of a list
