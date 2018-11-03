@@ -38,5 +38,13 @@ defmodule ChapterFour do
           %TodoList{todo_list | entries: new_entries}
       end
     end
+
+    def delete_entry(todo_list, entry_id) do
+      new_entries = Map.delete(todo_list.entries, entry_id)
+
+      %TodoList{todo_list |
+        entries: new_entries
+      }
+    end
   end
 end
