@@ -5,6 +5,14 @@ defmodule ChapterFour.TodoList.TodoList do
 
   def new(), do: %TodoList{}
 
+  def new(entries) do
+    Enum.reduce(
+      entries,
+      TodoList.new,
+      fn entry, accumulator -> add_entry(accumulator, entry) end
+    )
+  end
+
   def add_entry(todo_list, entry) do
     # Result = Map.put(map_to_update, key, value)
     entry = Map.put(entry, :id, todo_list.auto_id)
