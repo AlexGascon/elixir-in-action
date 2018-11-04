@@ -10,17 +10,22 @@ defmodule ChapterFour.TodoList.CsvImporter do
   end
 
   defp read_lines(file_path) do
-    File.read!(file_path)
-    |> String.split("\n")
+    File.stream!(file_path)
+    |> Stream.map(&remove_newline_character(&1))
   end
 
-  def parse_entry(row) do
+  defp remove_newline_character(string) do
+    string
+    |> String.replace("\n", "")
+  end
+
+  defp parse_entry(row) do
     [date, title] = String.split(row, ",")
 
     %{date: parse_date(date), title: title}
   end
 
-  def parse_date(date) do
+  defp parse_date(date) do
     date
     |> String.split("/")
     |> Enum.map(&String.to_integer(&1))
